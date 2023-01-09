@@ -1,0 +1,25 @@
+.stripped {
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .stripped:before,
+  .stripped:after {
+    background-color: #fff;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+  
+  .stripped:before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  
+  .stripped:after {
+    left: 0.5em;
+    margin-right: -50%;
+  }

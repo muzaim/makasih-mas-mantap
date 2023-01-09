@@ -1,0 +1,40 @@
+.logo svg{
+    font-size: 6rem;
+    color: white;
+}
+
+hr{
+    background-color: #253d5c; 
+    height: 1px; 
+    border: 0;
+}
+
+.active{
+    color: rgb(253 186 116);
+}
+
+li{
+    display: flex;
+    gap: 1.5rem;
+}
+
+li svg{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.menu-item a{
+    font-size: 16px;
+    color: whitesmoke;
+    line-height: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.menu-item{
+    border-right: 6px solid #111c44;
+}
+.menu-item:hover{
+    border-right: 6px solid #fff;
+    transition: 0.7s ease-in-out;
+}
