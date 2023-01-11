@@ -1,12 +1,12 @@
-import React from 'react'
-import './style.css'
+import React from "react";
+import "./style.css";
 
 function index() {
   return (
-    <div className='p-4 text-white'>
+    <div className="py-3 px-4 text-white overflow-y-auto h-[200rem] ">
       About
     </div>
-  )
+  );
 }
 
-export default index
+export default index;

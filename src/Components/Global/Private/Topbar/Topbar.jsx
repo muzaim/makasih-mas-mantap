@@ -1,14 +1,20 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import React, { Fragment, useState } from "react";
 import { FaSearch, FaBell, FaMoon, FaSun, FaInfoCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 import "./topbar.css";
+import Cookies from "js-cookie";
 
 function Topbar() {
   const [darkTheme, setDarkTheme] = useState(true);
   const changeTheme = () => {
     setDarkTheme(!darkTheme);
+  };
+  const Navigate = useNavigate();
+  const logOut = () => {
+    Cookies.remove("user");
+    Navigate("/sign-in");
   };
   return (
     <Disclosure
@@ -21,10 +27,10 @@ function Topbar() {
             <div className="text-xs">Pages / Dashboard</div>
             <div className="text-xl font-bold">Dashboard</div>
           </div>
-          <div className="bg-[#111C44] rounded-full flex items-center justify-evenly px-3 py-[0.3rem] shadow-xl gap-3 text-white">
+          <div className="bg-[#111C44] rounded-full flex items-center justify-evenly px-4 py-[0.3rem] shadow-xl gap-3 text-white">
             <input
               type="text"
-              className="bg-[#0B1437] rounded-full w-40 px-4 py-2 text-sm"
+              className="bg-[#0B1437] rounded-full w-40 px-4 py-2 text-sm -ml-2"
               placeholder="Search"
             />
             <div className="cursor-pointer">
@@ -32,12 +38,12 @@ function Topbar() {
             </div>
             <div className="cursor-pointer mt-0" onClick={() => changeTheme()}>
               {/* {darkTheme ? <FaMoon /> : <FaSun />} */}
-              <div class="flip-box">
-                <div class="flip-box-inner">
-                  <div class="flip-box-front">
+              <div className="flip-box">
+                <div className="flip-box-inner">
+                  <div className="flip-box-front">
                     <FaMoon className="top-svg" />
                   </div>
-                  <div class="flip-box-back">
+                  <div className="flip-box-back">
                     <FaSun className="top-svg" />
                   </div>
                 </div>
@@ -46,7 +52,7 @@ function Topbar() {
             <div className=" cursor-pointer">
               <FaInfoCircle className="top-svg" />
             </div>
-            <Menu as="div" className="relative">
+            <Menu as="div" className="relative shadow-xl">
               <Menu.Button>
                 <img
                   className="h-7 w-7 -mb-2 rounded-full ring-2 cursor-pointer object-cover"
@@ -64,7 +70,7 @@ function Topbar() {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="p-3 absolute right-0 top-10 w-56 origin-top-right bg-[#253057] rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="p-3 absolute right-0 top-10 w-44 origin-top-right bg-[#253057] rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <Menu.Item as="div" className="flex justify-center my-2">
                     {({ active }) => (
                       <Link
@@ -76,26 +82,41 @@ function Topbar() {
                     )}
                   </Menu.Item>
                   <hr />
-                  <Menu.Item as="div">
-                    {({ active }) => (
-                      <Link
-                        className="text-white text-xs tracking-wide"
-                        to="/dashboard"
-                      >
-                        Profile
-                      </Link>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item as="div">
-                    {({ active }) => (
-                      <Link
-                        className="text-white text-xs tracking-wide flex gap-1 items-center"
-                        to="/dashboard"
-                      >
-                        <MdLogout /> Logout
-                      </Link>
-                    )}
-                  </Menu.Item>
+                  <div className="flex flex-col gap-2 py-2 tracking-widest">
+                    <Menu.Item as="div">
+                      {({ active }) => (
+                        <Link
+                          className="text-white text-xs tracking-wide"
+                          to="/dashboard"
+                        >
+                          Profile
+                        </Link>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item as="div">
+                      {({ active }) => (
+                        <Link
+                          className="text-white text-xs tracking-wide"
+                          to="/dashboard"
+                        >
+                          News
+                        </Link>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item as="div">
+                      {({ active }) => (
+                        <div
+                          className="text-white text-xs tracking-wide flex gap-1 items-center cursor-pointer"
+                          onClick={logOut}
+                        >
+                          <MdLogout />{" "}
+                          <span className="text-zinc-100 font-bold">
+                            Logout
+                          </span>
+                        </div>
+                      )}
+                    </Menu.Item>
+                  </div>
                 </Menu.Items>
               </Transition>
             </Menu>
