@@ -3,7 +3,7 @@ import "./style.css";
 
 function index() {
   return (
-    <div className="py-3 px-4 text-white overflow-y-auto ">
+    <div className="py-3 px-4 text-white overflow-y-auto">
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-[#111C44] min-w-max rounded-xl h-52 py-4 px-5 text-white shadow-xl ">
           <div className="text-center text-white">

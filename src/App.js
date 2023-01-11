@@ -5,6 +5,7 @@ import Dashboard from "./Components/Layouts/Dashboard";
 import Home from "./Pages/Dashboard/Home";
 import Profile from "./Pages/Dashboard/Profile";
 import About from "./Pages/Dashboard/About";
+import Projects from "./Pages/Dashboard/Projects";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="profile" element={<Profile />} />
             <Route path="about" element={<About />} />
+            <Route path="projects" element={<Projects />} />
           </Route>
           <Route path="sign-in" element={<SignIn />} />
         </Routes>

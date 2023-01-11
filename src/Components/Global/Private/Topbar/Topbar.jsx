@@ -11,11 +11,13 @@ function Topbar() {
   const changeTheme = () => {
     setDarkTheme(!darkTheme);
   };
+
   const Navigate = useNavigate();
   const logOut = () => {
     Cookies.remove("user");
     Navigate("/sign-in");
   };
+
   return (
     <Disclosure
       as="nav"
@@ -27,7 +29,7 @@ function Topbar() {
             <div className="text-xs">Pages / Dashboard</div>
             <div className="text-xl font-bold">Dashboard</div>
           </div>
-          <div className="bg-[#111C44] rounded-full flex items-center justify-evenly px-4 py-[0.3rem] shadow-xl gap-3 text-white">
+          <div className="bg-[#111C44] rounded-full flex items-center justify-evenly px-4 py-[0.5rem] shadow-xl gap-3 text-white">
             <input
               type="text"
               className="bg-[#0B1437] rounded-full w-40 px-4 py-2 text-sm -ml-2"
@@ -70,14 +72,14 @@ function Topbar() {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="p-3 absolute right-0 top-10 w-44 origin-top-right bg-[#253057] rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="p-3 absolute right-0 top-12 w-44 origin-top-right bg-[#253057] rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <Menu.Item as="div" className="flex justify-center my-2">
                     {({ active }) => (
                       <Link
                         className="text-white text-xs tracking-wide"
                         to="/dashboard"
                       >
-                        Hi <span className="font-bold">Lisa Manoban</span> 👋
+                        Hi, <span className="font-bold">Lisa Manoban</span> 👋
                       </Link>
                     )}
                   </Menu.Item>
@@ -87,7 +89,7 @@ function Topbar() {
                       {({ active }) => (
                         <Link
                           className="text-white text-xs tracking-wide"
-                          to="/dashboard"
+                          to="/profile"
                         >
                           Profile
                         </Link>
@@ -103,14 +105,14 @@ function Topbar() {
                         </Link>
                       )}
                     </Menu.Item>
-                    <Menu.Item as="div">
+                    <Menu.Item as="div" className="mt-1">
                       {({ active }) => (
                         <div
                           className="text-white text-xs tracking-wide flex gap-1 items-center cursor-pointer"
                           onClick={logOut}
                         >
                           <MdLogout />{" "}
-                          <span className="text-zinc-100 font-bold">
+                          <span className="text-zinc-100 font-semibold tracking-wider">
                             Logout
                           </span>
                         </div>

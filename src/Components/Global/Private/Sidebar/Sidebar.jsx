@@ -83,6 +83,30 @@ function Sidebar() {
             </span>
           </Link>
         </div>
+        <div
+          className={
+            splitLocation[1] === "projects"
+              ? "active pl-4 py-3"
+              : "pl-4 py-3 opacity-60 hover:opacity-100"
+          }
+        >
+          <Link className="flex items-center gap-2" to="/projects">
+            <img
+              className="h-3 w-3"
+              src="./assets/icon/square-menu.svg"
+              alt=""
+            />
+            <span
+              className={
+                splitLocation[1] === "projects"
+                  ? "active text-xs font-bold tracking-wide"
+                  : "text-xs font-thin tracking-wide"
+              }
+            >
+              Projects
+            </span>
+          </Link>
+        </div>
       </div>
     </div>
   );

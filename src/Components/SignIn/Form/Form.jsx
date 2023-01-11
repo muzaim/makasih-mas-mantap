@@ -27,6 +27,7 @@ const Form = () => {
       Navigate("/");
       console.log(`berhasil masuk`);
     } else {
+      console.log(`password salah`);
     }
     console.log(dataLogin);
   };
@@ -39,6 +40,7 @@ const Form = () => {
       <button className="w-full bg-[#222d59] mt-3 py-2 rounded-lg font-thin flex justify-center gap-2 text-xs  items-center hover:opacity-90">
         <FcGoogle /> Sign In With Google
       </button>
+
       <div className="stripped my-2">
         <span className="text-sm">or</span>
       </div>
